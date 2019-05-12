@@ -20,19 +20,23 @@ router.post('/api/burger', function (req, res) {
     burgerModel.postBurger(feData, function (data){
         console.log(data, 'this is databse insert');
         res.send("row added to db")
-
-        res.end()
     })
 })
 router.put('/api/burger/:id', function (req, res) {
     var id = req.params.id;
-    burgerModel.putBurger(id, function(){
-
-        res.end('')
+    burgerModel.putBurger(id, function(data){
+        console.log(data, "row updated");
+        res.send('update happened on ' + id)
     })
 })
 router.delete('/api/burger/:id', function (req, res) {
-    res.send('')
+    var id = req.params.id
+    console.log(id);
+    burgerModel.deleteBurger(id, function(data){
+        console.log(data);
+
+        res.send('row deleted')
+    })
 })
 
 

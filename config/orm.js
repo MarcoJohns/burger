@@ -21,8 +21,25 @@ var orm = {
             cb(data)
         })
     },
-    updateRow: function(id, cb){
+    updateRow: function(table, id, cb){
+        var queryString = "UPDATE ?? SET devoured = 1 WHERE id = ?;"
 
+        connection.query(queryString, [table, id], function (err, data) {
+            if (err) {
+                throw err;
+            }
+            cb(data)
+        })
+    },
+    deleteRow: function(table, id, cb){
+        var queryString = "DELETE FROM ?? WHERE id = ?;"
+
+        connection.query(queryString, [table, id], function (err, data) {
+            if (err) {
+                throw err;
+            }
+            cb(data)
+        })
     }
 }
 

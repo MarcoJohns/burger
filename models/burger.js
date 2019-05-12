@@ -8,7 +8,10 @@ var burger = {
         orm.insertInto('burgers', 'burger_name', feData, cb)
     },
     putBurger: function(id, cb){
-        orm.updateRow()
+        orm.updateRow('burgers', id, cb)
+    },
+    deleteBurger: function(id, cb){
+        orm.deleteRow('burgers', id, cb)
     }
 }
 
