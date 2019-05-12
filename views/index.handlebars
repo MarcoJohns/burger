@@ -4,9 +4,9 @@
     <hr>
     {{#each burgers}}
     <div>
-        {{#unless completed}}
+        {{#unless devoured}}
         <p> Burger: {{this.burger_name}}</p>
-        <button data-id={{this.id}} class="eaten">eaten</button>
+        <button data-id={{this.id}} class="eat">eat</button>
         <hr>
         {{/unless}}
     </div>
@@ -16,9 +16,9 @@
     {{#each burgers}}
     <div>
 
-        {{#if completed}}
+        {{#if devoured}}
         <p>{{this.burger_name}}</p>
-        <button data -id={{this.id}} class="delete">delete</button>
+        <button data-id={{this.id}} class="delete">delete</button>
         <hr>
         {{/if}}
     </div>

@@ -14,7 +14,13 @@ router.get('/', function (req, res) {
     })
 })
 
-router.get('/about', function (req, res) {
+router.post('/burger', function (req, res) {
+    res.send('')
+})
+router.put('/burger', function (req, res) {
+    res.send('')
+})
+router.delete('/burger', function (req, res) {
     res.send('')
 })
 
