@@ -10,13 +10,20 @@ var orm = {
             }
             cb(data)
         })
+    },
+    insertInto: function(table, col, feData, cb){
+        var queryString = "INSERT INTO ?? (??) VALUES (?)"
+
+        connection.query(queryString, [table, col, feData.burger ], function (err, data) {
+            if (err) {
+                throw err;
+            }
+            cb(data)
+        })
+    },
+    updateRow: function(id, cb){
+
     }
-    // insertOne: function(){
-
-    // }
-    // updateOne: function(){
-
-    // };
 }
 
 module.exports = orm;

@@ -14,13 +14,24 @@ router.get('/', function (req, res) {
     })
 })
 
-router.post('/burger', function (req, res) {
-    res.send('')
+router.post('/api/burger', function (req, res) {
+    console.log(req.body);
+    var feData = req.body;
+    burgerModel.postBurger(feData, function (data){
+        console.log(data, 'this is databse insert');
+        res.send("row added to db")
+
+        res.end()
+    })
 })
-router.put('/burger', function (req, res) {
-    res.send('')
+router.put('/api/burger/:id', function (req, res) {
+    var id = req.params.id;
+    burgerModel.putBurger(id, function(){
+
+        res.end('')
+    })
 })
-router.delete('/burger', function (req, res) {
+router.delete('/api/burger/:id', function (req, res) {
     res.send('')
 })
 
