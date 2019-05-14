@@ -33,11 +33,13 @@ $(document).on('click', '.delete', function (event) {
 $(document).on('click', '#addBurger', function (event) {
     event.preventDefault();
     console.log('add has been clicked');
+    console.log($('#burger'));
+    var burgerName = $('#burger').val();
     $.ajax({
         url: '/api/burger',
         method: 'POST',
         data: {
-            burger_name: $('#burger').val().trim()
+            burger_name: burgerName
         }
     }).then(function(serverResponse){
         console.log(serverResponse);

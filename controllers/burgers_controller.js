@@ -5,8 +5,8 @@ var router = express.Router();
 
 
 router.get('/', function (req, res) {
-    burgerModel.getAllBurgers(function(data){
-        
+    burgerModel.getAllBurgers(function (data) {
+
         var burgerObj = {
             burgers: data
         }
@@ -15,16 +15,17 @@ router.get('/', function (req, res) {
 })
 
 router.post('/api/burger', function (req, res) {
-    console.log(req.body);
+    console.log("this is the body", req.body);
     var feData = req.body;
-    burgerModel.postBurger(feData, function (data){
+    console.log(feData);
+    burgerModel.postBurger(feData, function (data) {
         console.log(data, 'this is databse insert');
-        res.send("row added to db")
+        res.send("/")
     })
 })
 router.put('/api/burger/:id', function (req, res) {
     var id = req.params.id;
-    burgerModel.putBurger(id, function(data){
+    burgerModel.putBurger(id, function (data) {
         console.log(data, "row updated");
         res.send('update happened on ' + id)
     })
@@ -32,7 +33,7 @@ router.put('/api/burger/:id', function (req, res) {
 router.delete('/api/burger/:id', function (req, res) {
     var id = req.params.id
     console.log(id);
-    burgerModel.deleteBurger(id, function(data){
+    burgerModel.deleteBurger(id, function (data) {
         console.log(data);
 
         res.send('row deleted')
